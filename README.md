@@ -1,8 +1,8 @@
-# youtube-cooking-timer
+# Youtube Cooking Timer
 
-> Time your cooking by watching youtube videos
+Time your cooking by having the first youtube video at your specific time show up
 
-## Build Setup
+## Setup this project on your computer
 
 ``` bash
 # install dependencies
@@ -17,5 +17,3 @@ npm run build
 # build for production and view the bundle analyzer report
 npm run build --report
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
