@@ -1,7 +1,7 @@
 <template>
   <div id="timer">
     <p>Select a time</p>
-    <vue-timepicker v-on="findVideo" v-model="timeToPass" format="mm:ss"></vue-timepicker>
+    <vue-timepicker v-model="timeToPass" @change="findVideo" format="mm:ss"></vue-timepicker>
   </div>
 </template>
 
@@ -20,13 +20,24 @@ export default {
   data () {
     return {
       timeToPass: {
-        mm: '10',
-        ss: '00'
+        mm: '',
+        ss: ''
       }
     }
   },
-  findVideo: function (time) {
-    console.log(time)
+  methods: {
+    findVideo: function (eventData) {
+      let minutes = '00'
+      let seconds = '00'
+      if (eventData.data.ss) {
+        seconds = eventData.data.ss
+      }
+      if (eventData.data.mm) {
+        minutes = eventData.data.mm
+      }
+      let time = minutes + seconds
+      console.log(time)
+    }
   }
 }
 </script>
