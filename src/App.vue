@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <h1>Youtube Cooking Timer</h1>
     <router-view/>
+    <router-link to="/about">What is this?</router-link>
   </div>
 </template>
 
