@@ -1,5 +1,5 @@
 <template>
-  <div id="test">
+  <div id="timer">
     <p></p>
   </div>
 </template>
