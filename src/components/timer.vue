@@ -2,7 +2,7 @@
   <div id="timer">
     <p>Select a time</p>
     <vue-timepicker v-model="timeToPass" format="mm:ss"></vue-timepicker>
-    <button @click="findVideo">Go</button>
+    <button @click="setVideoLength">Go</button>
   </div>
 </template>
 
@@ -27,7 +27,7 @@ export default {
     }
   },
   methods: {
-    findVideo: function () {
+    setVideoLength: function () {
       this.videoLength = this.timeToPass.mm + ':' + this.timeToPass.ss
       console.log(this.videoLength)
     }
