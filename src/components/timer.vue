@@ -16,7 +16,7 @@
 import VueTimepicker from 'vue2-timepicker'
 
 export default {
-  name: 'index',
+  name: 'timer',
   components: { VueTimepicker },
   data () {
     return {
@@ -28,8 +28,8 @@ export default {
   },
   methods: {
     findVideo: function () {
-      let time = this.timeToPass.mm + ':' + this.timeToPass.ss
-      console.log(time)
+      this.videoLength = this.timeToPass.mm + ':' + this.timeToPass.ss
+      console.log(this.videoLength)
     }
   }
 }

@@ -9,7 +9,10 @@
 
 <script>
 export default {
-  name: 'App'
+  name: 'main',
+  props: {
+    videoLength: String
+  }
 }
 </script>
 
