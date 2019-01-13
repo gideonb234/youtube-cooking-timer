@@ -6,7 +6,6 @@
 
     <p>Video Goes Here</p>
     <youtube :video-id="videoId" ref="youtube" @playing="playing"></youtube>
-    <button @click="playVideo">play</button>
   </div>
 </template>
 
@@ -18,10 +17,11 @@
 
 <script>
 import VueTimepicker from 'vue2-timepicker'
+import searchYoutube from 'youtube-api-v3-search'
 
 export default {
   name: 'timer',
-  components: { VueTimepicker, VueYoutube },
+  components: { VueTimepicker },
   data () {
     return {
       timeToPass: {
@@ -29,7 +29,12 @@ export default {
         ss: ''
       },
       videoLength: '',
-      videoId: 'lG0Ys-2d4MA',
+      videoId: 'b1meYzG4lvc',
+      options: {
+        q: '',
+        part: 'snippet',
+        type: 'video'
+      }
     }
   },
   methods: {
@@ -41,18 +46,25 @@ export default {
       if (!this.videoLength) {
         console.log('empty')
       }
+      this.options.q = this.videoLength
+      let search = this.youtubeApiSearch()
+      console.log(search)
     },
     playVideo () {
       this.player.playVideo()
     },
     playing () {
-      console.log('\o/ we are watching!!!')
+      console.log('video playing')
+    },
+    youtubeApiSearch ()  {
+      const YOUTUBE_API_KEY = "key goes here"
+      return searchYoutube(YOUTUBE_API_KEY, this.options)
     }
   },
   computed: {
     player () {
       return this.$refs.youtube.player
     }
-  },
+  }
 }
 </script>
