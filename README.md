@@ -20,6 +20,9 @@ npm run build --report
 
 # List of things todo
 - [x] Add yt player 
-- [x] Add yt search   
+- [x] Add yt search 
+- [ ] Get search working as I want it to 
+- [ ] Integrate search results into player
+- [ ] Have it autoplay once I click go  
 - [ ] Styling
 - [ ] Make it behave more like a vue-style app instead of jQuery-esque bullshit
