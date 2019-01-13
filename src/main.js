@@ -3,6 +3,7 @@
 import Vue from 'vue'
 import app from './app'
 import router from './router'
+import VueYoutube from 'vue-youtube'
 
 Vue.config.productionTip = false
 
@@ -13,3 +14,5 @@ new Vue({
   components: { app },
   template: '<app/>'
 })
+
+Vue.use(VueYoutube)

@@ -8,17 +8,7 @@
 
 <script>
 export default {
-  name: 'main',
-  props: {
-    videoLength: String
-  },
-  methods: {
-    findVideo () {
-      if (!this.videoLength) {
-        return
-      }
-    }
-  }
+  name: 'mainApp'
 }
 </script>
 
