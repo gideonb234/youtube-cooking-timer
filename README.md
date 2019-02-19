@@ -4,7 +4,7 @@ Time your cooking by having the first youtube video at your specified time show 
 
 ## Setup this project on your computer
 
-``` bash
+```bash
 # install dependencies
 npm install
 
@@ -25,4 +25,4 @@ npm run build --report
 - [ ] Integrate search results into player
 - [ ] Have it autoplay once I click go  
 - [ ] Styling
-- [ ] Make it behave more like a vue-style app instead of jQuery-esque bullshit
+- [ ] Refactor it

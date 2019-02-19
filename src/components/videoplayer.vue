@@ -47,8 +47,15 @@ export default {
         console.log('empty')
       }
       this.options.q = this.videoLength
-      let search = this.youtubeApiSearch()
-      console.log(search)
+      let results = this.youtubeApiSearch()
+      results.then((items) => {
+        console.log({items: items})
+        if (items.length > 0) {
+          console.log(items[0].id.videoId)
+          this.videoId = items[0].id.videoId
+        }
+      }, () => { return null })
+      return null
     },
     playVideo () {
       this.player.playVideo()
@@ -56,9 +63,17 @@ export default {
     playing () {
       console.log('video playing')
     },
-    youtubeApiSearch ()  {
-      const YOUTUBE_API_KEY = "key goes here"
-      return searchYoutube(YOUTUBE_API_KEY, this.options)
+    youtubeApiSearch () {
+      const YOUTUBE_API_KEY = 'get your own damn key'
+      return searchYoutube(YOUTUBE_API_KEY, this.options).then((result) => {
+        console.log('success')
+        return result.items
+      }, (error, result) => {
+        console.log('fail')
+        console.log(error)
+        console.log(result)
+        return null
+      })
     }
   },
   computed: {
