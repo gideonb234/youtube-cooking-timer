@@ -51,7 +51,6 @@ export default {
       results.then((items) => {
         console.log({items: items})
         if (items.length > 0) {
-          console.log(items[0].id.videoId)
           this.videoId = items[0].id.videoId
         }
       }, () => { return null })
@@ -61,17 +60,15 @@ export default {
       this.player.playVideo()
     },
     playing () {
-      console.log('video playing')
+      return true
     },
     youtubeApiSearch () {
-      const YOUTUBE_API_KEY = 'get your own damn key'
-      return searchYoutube(YOUTUBE_API_KEY, this.options).then((result) => {
+      return searchYoutube(process.env.YOUTUBE_API_KEY, this.options).then((result) => {
         console.log('success')
         return result.items
       }, (error, result) => {
         console.log('fail')
         console.log(error)
-        console.log(result)
         return null
       })
     }
