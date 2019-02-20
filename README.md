@@ -23,6 +23,6 @@ npm run build --report
 - [x] Add yt search 
 - [ ] Get search working as I want it to 
 - [x] Integrate search results into player
-- [ ] Have it autoplay once I click go  
+- [x] Have it autoplay once I click go  
 - [ ] Styling
 - [ ] Refactor it

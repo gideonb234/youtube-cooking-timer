@@ -49,22 +49,25 @@ export default {
       this.options.q = this.videoLength
       let results = this.youtubeApiSearch()
       results.then((items) => {
-        console.log({items: items})
+        // console.log({items: items})
         if (items.length > 0) {
           this.videoId = items[0].id.videoId
+          this.playVideo()
         }
       }, () => { return null })
       return null
     },
-    playVideo () {
-      this.player.playVideo()
+    playVideo() {
+      this.player.playVideo().then((result) => {
+        result.playVideo()
+      })
     },
     playing () {
       return true
     },
     youtubeApiSearch () {
       return searchYoutube(process.env.YOUTUBE_API_KEY, this.options).then((result) => {
-        console.log('success')
+        // console.log('success')
         return result.items
       }, (error, result) => {
         console.log('fail')

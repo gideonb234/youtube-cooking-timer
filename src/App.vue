@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h1>Youtube Cooking Timer</h1>
+    <h1><router-link to="/"> Youtube Cooking Timer</router-link></h1>
     <router-view/>
     <router-link to="/about">What is this?</router-link>
   </div>
