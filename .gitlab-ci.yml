@@ -6,7 +6,7 @@ before_script:
     - eval $(ssh-agent -s)
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ${HOME}/.ssh/id_rsa
     - chmod 600 ${HOME}/.ssh/id_rsa 
-    # - ssh-add ${HOME}/.ssh/id_rsa
+    - ssh-add ${HOME}/.ssh/id_rsa
 
 stages:
   - deploy
@@ -19,6 +19,6 @@ deploy_prod:
   script: 
     - npm install
     - npm run build
-    - rsync -hrvz --delete --exclude=_ -e 'ssh -o StrictHostKeyChecking=no' public/ ariehci@ordorbles.uk:~/youtube-cooking-timer
+    - rsync -hrvz --delete --exclude=_ -e 'ssh -o StrictHostKeyChecking=no' ariehci@ordorbles.uk:~/youtube-cooking-timer
   only:
     - master
