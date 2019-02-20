@@ -21,8 +21,11 @@ npm run build --report
 # List of things todo
 - [x] Add yt player 
 - [x] Add yt search 
-- [ ] Get search working as I want it to 
 - [x] Integrate search results into player
 - [x] Have it autoplay once I click go  
+- [ ] Get search working as I want it to 
 - [ ] Styling
 - [ ] Refactor it
+
+## Things to figure out for later
+How to get Youtube to properly give you video durations so filtering through these to find a time that matches would work properly

@@ -49,15 +49,15 @@ export default {
       this.options.q = this.videoLength
       let results = this.youtubeApiSearch()
       results.then((items) => {
-        // console.log({items: items})
         if (items.length > 0) {
           this.videoId = items[0].id.videoId
           this.playVideo()
         }
       }, () => { return null })
-      return null
     },
     playVideo () {
+      // for some reason its wrapped in a Promise
+      // So the result of the promise actually triggers the play video
       this.player.playVideo().then((result) => {
         result.playVideo()
       })
@@ -67,12 +67,10 @@ export default {
     },
     youtubeApiSearch () {
       return searchYoutube(process.env.YOUTUBE_API_KEY, this.options).then((result) => {
-        // console.log('success')
         return result.items
-      }, (error, result) => {
-        console.log('fail')
+      }, (error) => {
         console.log(error)
-        return null
+        return []
       })
     }
   },
