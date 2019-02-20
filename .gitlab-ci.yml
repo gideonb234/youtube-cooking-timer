@@ -15,10 +15,10 @@ deploy_prod:
   stage: deploy
   environment:
     name: Production
-    url: https://arieh.de/youtube
+    url: https://arieh.de/youtube-timer
   script: 
     - npm install
     - npm run build
-    - rsync -hrvz --delete --exclude=_ -e 'ssh -o StrictHostKeyChecking=no' ariehci@ordorbles.uk:~/youtube-cooking-timer
+    - rsync -hrvz --delete --exclude=_ -e 'ssh -o StrictHostKeyChecking=no' dist/ ariehci@ordorbles.uk:~/youtube-cooking-timer
   only:
     - master
