@@ -19,7 +19,7 @@ deploy:
   script: 
     # - npm install
     # - npm run build
-    - rsync -hrvz --delete --exclude=_ -e 'ssh -o StrictHostKeyChecking=no' ariehci@ordorbles.uk:~/youtube-cooking-timer
+    - rsync -hrvz --delete --exclude=_ -e 'ssh -o StrictHostKeyChecking=no' ./ ariehci@ordorbles.uk:~/youtube-cooking-timer
     - ssh -t ariehci@ordorbles.uk "cd ~/youtube-cooking-timer && npm install && npm run build"
   only:
     - master
