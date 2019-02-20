@@ -1,0 +1,24 @@
+image: node:10.15.1-jessie-slim
+
+before_script:
+    - which ssh-agent || ( apt-get update -y && apt-get install openssh-client rsync -y )
+    - mkdir -p ~/.ssh && chmod 700 ${HOME}/.ssh
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ${HOME}/.ssh/id_rsa
+    - chmod 600 ${HOME}/.ssh/id_rsa 
+    - ssh-add ${HOME}/.ssh/id_rsa
+
+stages:
+  - deploy
+
+deploy_prod:
+  stage: deploy
+  environment:
+    name: Production
+    url: https://arieh.dev/youtube
+  script: 
+    - npm install
+    - npm run build
+    - rsync -hrvz --delete --exclude=_ -e 'ssh -o StrictHostKeyChecking=no' public/ ariehci@ordorbles.uk:~/youtube-cooking-timer
+  only:
+    - master
