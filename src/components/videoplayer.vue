@@ -57,7 +57,7 @@ export default {
       }, () => { return null })
       return null
     },
-    playVideo() {
+    playVideo () {
       this.player.playVideo().then((result) => {
         result.playVideo()
       })
