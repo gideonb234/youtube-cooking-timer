@@ -15,7 +15,7 @@ deploy_prod:
   stage: deploy
   environment:
     name: Production
-    url: https://arieh.dev/youtube
+    url: https://arieh.de/youtube
   script: 
     - npm install
     - npm run build
