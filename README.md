@@ -1,5 +1,7 @@
 # Youtube Cooking Timer
 
+[![pipeline status](https://gitlab.com/arieh/youtube-cooking-timer/badges/master/pipeline.svg)](https://gitlab.com/arieh/youtube-cooking-timer/commits/master)
+
 Time your cooking by having the first youtube video at your specified time show up
 
 ## Setup this project on your computer
