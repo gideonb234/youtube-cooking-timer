@@ -1,6 +1,6 @@
 # Youtube Cooking Timer
 
-[![pipeline status](https://gitlab.com/arieh/youtube-cooking-timer/badges/master/pipeline.svg)](https://gitlab.com/arieh/youtube-cooking-timer/commits/master)
+[![pipeline status](https://gitlab.com/arieh/youtube-cooking-timer/badges/master/pipeline.svg)](https://github.com/gideonb234/youtube-cooking-timer/commits/master)
 
 Time your cooking by having the first youtube video at your specified time show up
 

@@ -17,8 +17,8 @@ deploy:
     name: Production
     url: https://arieh.de
   script: 
-    - sed -e 's/\_\_YOUTUBE\_API\_KEY\_\_/$YOUTUBE_API_KEY/g' config/prod.env.js
-    - sed -i 's/\_\_YOUTUBE\_API\_KEY\_\_/$YOUTUBE_API_KEY/g' config/prod.env.js
+    - sed -e 's/\_\_YOUTUBE\_API\_KEY\_\_/$$YOUTUBE_API_KEY/g' config/prod.env.js
+    - sed -i 's/\_\_YOUTUBE\_API\_KEY\_\_/$$YOUTUBE_API_KEY/g' config/prod.env.js
     - npm install
     - npm run build
     - rsync -hrvz --delete --exclude=_ -e 'ssh -o StrictHostKeyChecking=no' dist/ ariehci@ordorbles.uk:~/youtube-cooking-timer
