@@ -1,5 +1,8 @@
 image: node:lts-jessie-slim
 
+variables:
+  YOUTUBE_API_KEY: "$YOUTUBE_API_KEY"
+
 before_script:
     - which ssh-agent || ( apt-get update -y && apt-get install openssh-client rsync sed -y )
     - mkdir -p ~/.ssh && chmod 700 ${HOME}/.ssh
@@ -17,8 +20,8 @@ deploy:
     name: Production
     url: https://arieh.de
   script: 
-    - sed -e 's/\_\_YOUTUBE\_API\_KEY\_\_/$$YOUTUBE_API_KEY/g' config/prod.env.js
-    - sed -i 's/\_\_YOUTUBE\_API\_KEY\_\_/$$YOUTUBE_API_KEY/g' config/prod.env.js
+    - sed -e 's/\_\_YOUTUBE\_API\_KEY\_\_/$YOUTUBE_API_KEY/g' config/prod.env.js
+    - sed -i 's/\_\_YOUTUBE\_API\_KEY\_\_/$YOUTUBE_API_KEY/g' config/prod.env.js
     - npm install
     - npm run build
     - rsync -hrvz --delete --exclude=_ -e 'ssh -o StrictHostKeyChecking=no' dist/ ariehci@ordorbles.uk:~/youtube-cooking-timer
