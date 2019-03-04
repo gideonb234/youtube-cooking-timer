@@ -8,6 +8,8 @@ before_script:
     - mkdir -p ~/.ssh && chmod 700 ${HOME}/.ssh
     - eval $(ssh-agent -s)
     - echo "$SSH_PRIVATE_KEY" | tr -d '\r' > ${HOME}/.ssh/id_rsa
+    - sed -e 's/\_\_YOUTUBE\_API\_KEY\_\_/$YOUTUBE_API_KEY/g' config/prod.env.js
+    - sed -i 's/\_\_YOUTUBE\_API\_KEY\_\_/$YOUTUBE_API_KEY/g' config/prod.env.js
     - chmod 600 ${HOME}/.ssh/id_rsa 
     - ssh-add ${HOME}/.ssh/id_rsa
 
@@ -20,8 +22,6 @@ deploy:
     name: Production
     url: https://arieh.de
   script: 
-    - sed -e 's/\_\_YOUTUBE\_API\_KEY\_\_/$YOUTUBE_API_KEY/g' config/prod.env.js
-    - sed -i 's/\_\_YOUTUBE\_API\_KEY\_\_/$YOUTUBE_API_KEY/g' config/prod.env.js
     - npm install
     - npm run build
     - rsync -hrvz --delete --exclude=_ -e 'ssh -o StrictHostKeyChecking=no' dist/ ariehci@ordorbles.uk:~/youtube-cooking-timer
